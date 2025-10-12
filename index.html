@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Kessoku Band Edits</title>
+  </head>
+  <style>
+    .centeredBg {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  </style>
+  <body>
+    <!-- LANDING PAGE -->
+    <div
+      class="bg-black"
+      style="position: absolute; top: 0; z-index: 2; width: 100%; height: 60px"
+    ></div>
+    <div
+      class="bg-black"
+      style="
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        width: 100%;
+        height: 60px;
+      "
+    ></div>
+
+
+    <div class="flex flex-row h-[100vh]" style="overflow-x: hidden; transform: translateY(-12px)">
+      <div
+        id="kitaIkuyo"
+        class="bg-red-500 h-full w-full centeredBg"
+        style="background-color: #CB5853;"
+      ></div>
+      <div
+        id="ryoYamada"
+        class="bg-blue-500 h-full w-full centeredBg"
+        style="background-color: #4A689C;"
+      ></div>
+      <div
+        id="hitoriGotou"
+        class="bg-pink-500 h-full w-full centeredBg"
+        style="background-color: #F2ABBB;"
+      ></div>
+      <div
+        id="nijikaIchiji"
+        class="bg-yellow-500 h-full w-full centeredBg"
+        style="background-color: #EFD580;"
+      ></div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
