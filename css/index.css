@@ -1,19 +1,17 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-y: hidden;
+* {
 
+    font-family: "Funnel Sans", sans-serif;
 }
 
-
-.characterImage{
+.characterImage {
     height: 90%;
 }
 
-.infos-container{
+.infos-container {
     transform: translateY(20vh);
 }
 
-.infos{
+.infos {
     margin-top: 5rem;
     margin-left: -5rem;
     width: 300px;
@@ -23,22 +21,22 @@
     /* background-color: rgba(0, 0, 0, 0.646); */
 }
 
-.editorName{
+.editorName {
     font-family: 'Font';
     font-size: 3rem;
     color: white;
 }
 
-.quote{
+.quote {
     margin-top: 2rem;
     color: white;
 }
 
-.viewButton{
+.viewButton {
     margin-top: 2rem;
 }
 
-button{
+button {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -46,28 +44,49 @@ button{
     cursor: pointer;
 }
 
-.socialsDiv{
+.socialsDiv {
     margin-top: 3rem;
     display: flex;
     flex-direction: row;
     gap: 3;
 }
 
-.socialIcon{
+.socialIcon {
     width: 3rem;
     filter: invert(100%);
 }
 
-i{
+i {
     color: rgb(201, 201, 201);
 }
 
-.layer1Img{
+.layer1Img {
     width: 101%;
 }
 
 .centeredBg {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h1 span {
+    margin-right: 0.5rem;
+    font-family: "Rock Salt", cursive;
+}
+
+#landing-content {
+    position: relative;
+    z-index: 20;
+}
+
+#main-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
