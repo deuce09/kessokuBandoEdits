@@ -32,19 +32,19 @@ export function toggleEditView(hiddenInput, character) {
     }
 }
 
-export function addTextNode(element, text){
-    const textNode = document.createTextNode(`${text}, `);
+export function addTextNode(element, text) {
+    const textNode = document.createTextNode(` ${text} `);
 
     element.appendChild(textNode);
 
 }
 
 export function findEnabledEditor(array) {
-    return array.filter(value =>  value === "1" || value === 1 );
+    return array.filter(value => value === "1" || value === 1);
 }
 
-export function findEnabledEditor_index(array){
-    return array.findIndex(value => value === 1 || value === "1" );
+export function findEnabledEditor_index(array) {
+    return array.findIndex(value => value === 1 || value === "1");
 }
 
 export function toggleEditor(characterClick, hiddenInput, value, toggleView) {
@@ -95,8 +95,8 @@ export function setImgSidebar(character, img, divId = null, inputId = null, valu
 
 export function outTransitionLandingPage(masterDiv, bbUp, bbDown) {
     masterDiv.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-    bbUp.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-    bbDown.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+    bbUp.style.transition = "opacity 0.7s ease, transform 0.7s ease, height 0.5s ease";
+    bbDown.style.transition = "opacity 0.7s ease, transform 0.7s ease, height 0.5s ease";
 }
 
 export function setTransitions(character) {
@@ -119,7 +119,7 @@ export function setTransition_filters(element) {
     element.style.transition = "filter 0.5s ease";
 }
 
-export function setTransition_transform(element){
+export function setTransition_transform(element) {
     element.style.transition = "transform 0.5s ease";
 }
 
@@ -171,11 +171,12 @@ export function configureButton(container, text, color = "black") {
     createB.appendChild(document.createTextNode("View "));
 
     const createI = document.createElement("i");
-    createI.style.color = color
+    createI.style.color = color;
     createI.textContent = text;
 
-    createB.appendChild(createI)
+    createB.appendChild(createI);
     createB.appendChild(document.createTextNode(" 's edits"));
+    createB.style.color = "black";
     container.appendChild(createB);
 
 }
@@ -273,24 +274,38 @@ export function hoverCharacters(character, img, characterLayer1, characterLayer2
 }
 
 // slide right when clicked a button in landing page
-export function landingPageButtonClick(button, masterDiv, bbUp, bbDown, mainContentShow, array, index, value) {
+export function landingPageButtonClick(button, masterDiv, bbUp, bbDown, mainContentShow, array, index, value, callback) {
     button.addEventListener("click", () => {
-        masterDiv.style.transform = "translateX(2500px) scale(1.5)";
+        // masterDiv.style.transform = "translateX(2500px) scale(1.5)";
+        masterDiv.style.opacity = "0";
         bbUp.style.transform = "translateY(-200px)";
         bbDown.style.transform = "translateY(200px)";
-        
+
+        bbUp.style.height = "80vh"
+        bbDown.style.height = "80vh"
+
         array[index] = value;
-        
+
         setTimeout(() => {
             mainContentShow.style.opacity = "1";
         }, 150);
 
 
         setTimeout(() => {
-            masterDiv.style.display = "none";
-            bbUp.style.display = "none";
-            bbDown.style.display = "none";
+            bbUp.style.opacity = "0";
+            bbDown.style.opacity = "0";
+            setTimeout(() => {
+                masterDiv.style.display = "none";
+                bbUp.style.display = "none";
+                bbDown.style.display = "none";
+                bbUp.style.height = "0px";
+                bbDown.style.height = "0px";
+            }, 600);
         }, 700);
+
+        if(callback){
+            callback();
+        }
 
     })
 }

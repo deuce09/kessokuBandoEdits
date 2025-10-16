@@ -22,6 +22,8 @@
         id="characterSidebar"
         class="p-[10px] flex md:flex-row lg:flex-col items-center gap-5 w-max h-max"
       >
+
+        <div id="go_back"><h1><span id="backIcon">@</span></h1></div>
         <!-- kessoku icons -->
 
         <div id="hitoriIcon"></div>
@@ -36,7 +38,7 @@
       <!-- EDITS / COLLABORATIONS -->
       <div id="content" class="items-start col-span-11">
         <div class="flex flex-col gap-10">
-          <div id="collab_mep" style="display: none;">
+          <div id="collab_mep" style="display: none; opacity: 0;">
             <h1 id="collab_mep_title"><span>Kessoku Meps</span></h1>
             <div
               class="grid xl:grid-flow-col lg:grid-cols-4 md:grid-cols-2 sm:grid-flow-row gap-4"
@@ -50,7 +52,7 @@
 
           <div id="contentEdits">
             <h1 id="contentTitle">
-              Edits of ( <span id="videoEditor_name"></span> )
+              Edits of <span id="videoEditor_name"></span> 
             </h1>
             <div
               class="grid xl:grid-flow-col lg:grid-cols-4 md:grid-cols-2 sm:grid-flow-row gap-4"

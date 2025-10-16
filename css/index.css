@@ -7,6 +7,20 @@
     height: 90%;
 }
 
+@keyframes upDown {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+.slideUpDownAnim{
+    animation: upDown 0.5s ease infinite alternate;
+}
+
 .infos-container {
     transform: translateY(20vh);
 }

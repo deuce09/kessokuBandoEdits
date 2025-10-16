@@ -73,6 +73,48 @@ export function getToggleEditorValue() {
 
     const qoute = document.querySelectorAll(".quote");
 
+    const characterDivId = [
+        kitaIkuyo,
+        ryoYamada,
+        hitoriGotou,
+        nijikaIchiji
+    ]
+
+    const layer1Id = [
+        kitaIkuyoLayer1,
+        ryoYamadaLayer1,
+        hitoriGotouLayer1,
+        nijikaIchijiLayer1
+    ];
+
+    const timing = [
+        100,
+        150,
+        200,
+        250
+    ]
+
+    layer1Id.forEach((btr) => {
+        btr.style.opacity = "0";
+    })
+
+    characterDivId.forEach((btr) => {
+        btr.style.transform = "translateY(-40px)"
+    })
+
+    for (let i = 0; i < layer1Id.length; i++) {
+
+        setTimeout(() => {
+            setTimeout(() => {
+                characterDivId[i].style.transform = "translateY(0px)";
+            }, timing[i]);
+            layer1Id[i].style.opacity = "1"
+        }, timing[i]);
+
+    }
+
+
+
     // ============================================
     // FUNCTIONS
     // ============================================
@@ -137,28 +179,36 @@ export function getToggleEditorValue() {
 
     outTransitionLandingPage(masterDiv, blackBarsTop, blackBarsBottom);
 
-    let toggleEditorValue = getToggleEditorValue;
 
-    landingPageButtonClick(reiButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 0, 1);
-    landingPageButtonClick(mashuButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 1, 1);
-    landingPageButtonClick(mikaButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 2, 1);
-    landingPageButtonClick(bloomButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 3, 1);
-
-    
-    
     // ========================================
     // FUNCTIONS MAIN CONTENT
     // ========================================
     const mainContentHTML = "./html/main-content.html"
     mainContent.style.opacity = "0";
-    
+
     setTransition_opacity(mainContent);
 
 
-    loadHTML(mainContent, mainContentHTML, function () {
-        main_functions();
+    landingPageButtonClick(reiButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 0, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
     });
-
+    landingPageButtonClick(mashuButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 1, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+    landingPageButtonClick(mikaButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 2, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+    landingPageButtonClick(bloomButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 3, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
 
 
 

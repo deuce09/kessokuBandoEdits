@@ -1,4 +1,4 @@
-import { setImgSidebar, setTransition_filters, setTextContent } from "./functions.js";
+import { setImgSidebar, setTransition_filters, setTextContent, setTransition_opacity, setTransition_transform } from "./functions.js";
 import { hoverCharacterSidebar } from "./functions.js";
 import { toggleEditView, toggleEditor } from "./functions.js";
 import { updateArray } from "./functions.js";
@@ -25,6 +25,11 @@ export function main_functions() {
     const hitoriIcon_img = "../assets/img/hitoriIcon.png";
     const nijikaIcon_img = "../assets/img/nijikaIcon.png";
 
+    const kitaIcon_img_1 = "../assets/img/kitaIcon1.png";
+    const ryoIcon_img_1 = "../assets/img/ryoIcon1.png";
+    const hitoriIcon_img_1 = "../assets/img/hitoriIcon1.png";
+    const nijikaIcon_img_1 = "../assets/img/nijikaIcon1.png";
+
     // ===========================
     // ARRAYS FOR LOOPING
     // ===========================
@@ -37,10 +42,10 @@ export function main_functions() {
     ];
 
     const sidebarIcons_img = [
-        kitaIcon_img,
-        ryoIcon_img,
-        hitoriIcon_img,
-        nijikaIcon_img
+        kitaIcon_img_1,
+        ryoIcon_img_1,
+        hitoriIcon_img_1,
+        nijikaIcon_img_1
     ];
 
     const sidebarIcons_id = [
@@ -76,6 +81,8 @@ export function main_functions() {
 
     const videoEditorName = document.getElementById("videoEditor_name");
     const collab_mep = document.getElementById("collab_mep");
+    const collab_mep_title = document.getElementById("collab_mep_title");
+    const contentEdits = document.getElementById("contentEdits");
 
 
     // HIDDEN VALUE
@@ -93,11 +100,14 @@ export function main_functions() {
         "Bloomilk"
     ];
 
+    setTransition_opacity(collab_mep);
+    setTransition_transform(contentEdits);
+
     function updateEditorName() {
         if (findEnabledEditor(toggleEditorValue).length === 1) {
             let enabledEditor = findEnabledEditor_index(toggleEditorValue);
             videoEditorName.textContent = editorNames[enabledEditor];
-        } else if (findEnabledEditor(toggleEditorValue).length > 1) {
+        } else if (findEnabledEditor(toggleEditorValue).length > 1 && findEnabledEditor(toggleEditorValue) !== 4) {
             let enabledEditors = toggleEditorValue.map((value, i) => (value === "1" || value === 1 ? i : -1)).filter(i => i !== -1);
             videoEditorName.textContent = "";
 
@@ -109,10 +119,18 @@ export function main_functions() {
 
         }
 
-        if(findEnabledEditor(toggleEditorValue).length === 4){
-            collab_mep.style.display = "block";
-        }else{
-            collab_mep.style.display = "none";
+        if (findEnabledEditor(toggleEditorValue).length === 4) {
+            videoEditorName.textContent = "Everyone";
+            collab_mep.style.display = "block"
+            setTimeout(() => {
+
+                collab_mep.style.opacity = "1";
+            }, 20);
+        } else {
+            collab_mep.style.opacity = "0";
+            setTimeout(() => {
+                collab_mep.style.display = "none"
+            }, 20);
         }
     }
 
