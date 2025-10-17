@@ -1,6 +1,6 @@
 export async function fetchData(editorName) {
     try {
-        const response = await fetch(`../json/${editorName}.json`)
+        const response = await fetch(`./json/${editorName}.json`)
 
         if (!response.ok) {
             throw new Error(`Could not fetch ${editorName}`);
