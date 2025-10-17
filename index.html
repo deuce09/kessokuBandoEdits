@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Gloria+Hallelujah&family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./css/index.css" />
     <title>Kessoku Band Edits</title>
   </head>
-
   <style>
     @font-face {
       font-family: "Font";
@@ -19,12 +25,12 @@
       src: url(./assets/fonts/Fonty.ttf);
     }
   </style>
-
   <body>
     <!-- LANDING PAGE -->
-   
+
+    <div id="landing-content">
       <div
-      id="blackBarsTop"
+        id="blackBarsTop"
         class="bg-black"
         style="
           position: absolute;
@@ -35,7 +41,7 @@
         "
       ></div>
       <div
-      id="blackBarsBottom"
+        id="blackBarsBottom"
         class="bg-black"
         style="
           position: absolute;
@@ -45,206 +51,203 @@
           height: 60px;
         "
       ></div>
-
- <div id="landingPage">
-      <div
-        class="flex flex-row h-[100vh]"
-        style="overflow-x: hidden; transform: translateY(-12px)"
-      >
-        <!-- KITA -->
+      <div id="landingPage">
         <div
-          id="kitaIkuyo"
-          class="h-full w-full centeredBg"
-          style="background-color: #cb5853"
+          class="flex flex-row h-[100vh]"
+          style="overflow-x: hidden; transform: translateY(-12px)"
         >
-          <div id="kitaIkuyoLayer1" class="h-full w-full centeredBg"></div>
+          <!-- KITA -->
           <div
-            id="kitaIkuyoLayer2"
+            id="kitaIkuyo"
             class="h-full w-full centeredBg"
-            style="
-              display: none;
-              opacity: 0;
-              background-image: linear-gradient(
-                  to bottom,
-                  rgba(255, 255, 255, 0),
-                  #cb5853,
-                  #cb5853
-                ),
-                url(./assets/img/kitaIkuyo2.jpg);
-              background-size: cover, cover;
-              background-position: 0 center, 0 -67px;
-              background-repeat: no-repeat, no-repeat;
-            "
+            style="background-color: #cb5853"
           >
-            <div class="grid grid-cols-3 infos-container">
-              <div class="white-space"></div>
-              <div class="image">
-                <img
-                  src="./assets/img/kitaIkuyoMain.png"
-                  alt=""
-                  class="characterImage"
-                />
-              </div>
-              <div class="infos">
-                <span class="editorName" id="reiName">REI</span>
-
-                <div class="quote">
-                  <span id="kitaQuote"></span><br />
-                  <span><i>- Kita Ikuyo</i></span>
+            <div id="kitaIkuyoLayer1" class="h-full w-full centeredBg"></div>
+            <div
+              id="kitaIkuyoLayer2"
+              class="h-full w-full centeredBg"
+              style="
+                overflow: hidden;
+                display: none;
+                opacity: 0;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    #cb5853,
+                    #cb5853
+                  ),
+                  url(./assets/img/kitaIkuyo2.jpg);
+                background-size: cover, cover;
+                background-position: 0 center, 0 -67px;
+                background-repeat: no-repeat, no-repeat;
+              "
+            >
+              <div class="grid grid-cols-3 infos-container">
+                <div class="white-space"></div>
+                <div class="image">
+                  <img
+                    src="./assets/img/kitaIkuyoMain.png"
+                    alt=""
+                    class="characterImage"
+                  />
                 </div>
-                <div id="socialsRei" class="socialsDiv"></div>
-                <div class="viewButton">
-                  <button id="reiButton"></button>
+                <div class="infos">
+                  <span class="editorName" id="reiName">REI</span>
+                  <div class="quote">
+                    <span id="kitaQuote"></span><br />
+                    <span><i>- Kita Ikuyo</i></span>
+                  </div>
+                  <div id="socialsRei" class="socialsDiv"></div>
+                  <div class="viewButton">
+                    <button id="reiButton"></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- ROY -->
-        <div
-          id="ryoYamada"
-          class="h-full w-full centeredBg"
-          style="background-color: #4a689c"
-        >
-          <div id="ryoYamadaLayer1" class="h-full w-full centeredBg"></div>
+          <!-- ROY -->
           <div
-            id="ryoYamadaLayer2"
+            id="ryoYamada"
             class="h-full w-full centeredBg"
-            style="
-              display: none;
-              opacity: 0;
-              background-image: linear-gradient(
-                  to bottom,
-                  rgba(255, 255, 255, 0),
-                  #4a689c,
-                  #4a689c
-                ),
-                url(./assets/img/ryoYamada2.jpg);
-              background-size: cover, cover;
-              background-position: 0 center, 0 -67px;
-              background-repeat: no-repeat, no-repeat;
-            "
+            style="background-color: #4a689c"
           >
-            <div class="grid grid-cols-3 infos-container">
-              <div class="white-space"></div>
-              <div class="image">
-                <img
-                  src="./assets/img/ryoYamadaMain.png"
-                  alt=""
-                  class="characterImage"
-                />
-              </div>
-              <div class="infos">
-                <span class="editorName" id="mashuName">MASHU</span>
-
-                <div class="quote">
-                  <span id="ryoQuote"></span><br />
-                  <span><i>- Ryo Yamada</i></span>
+            <div id="ryoYamadaLayer1" class="h-full w-full centeredBg"></div>
+            <div
+              id="ryoYamadaLayer2"
+              class="h-full w-full centeredBg"
+              style="
+                overflow: hidden;
+                display: none;
+                opacity: 0;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    #4a689c,
+                    #4a689c
+                  ),
+                  url(./assets/img/ryoYamada2.jpg);
+                background-size: cover, cover;
+                background-position: 0 center, 0 -67px;
+                background-repeat: no-repeat, no-repeat;
+              "
+            >
+              <div class="grid grid-cols-3 infos-container">
+                <div class="white-space"></div>
+                <div class="image">
+                  <img
+                    src="./assets/img/ryoYamadaMain.png"
+                    alt=""
+                    class="characterImage"
+                  />
                 </div>
-                <div id="socialsMashu" class="socialsDiv"></div>
-                <div class="viewButton">
-                  <button id="mashuButton"></button>
+                <div class="infos">
+                  <span class="editorName" id="mashuName">MASHU</span>
+                  <div class="quote">
+                    <span id="ryoQuote"></span><br />
+                    <span><i>- Ryo Yamada</i></span>
+                  </div>
+                  <div id="socialsMashu" class="socialsDiv"></div>
+                  <div class="viewButton">
+                    <button id="mashuButton"></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- BOCCHI -->
-        <div
-          id="hitoriGotou"
-          class="h-full w-full centeredBg"
-          style="background-color: #f2abbb"
-        >
-          <div id="hitoriGotouLayer1" class="h-full w-full centeredBg"></div>
+          <!-- BOCCHI -->
           <div
-            id="hitoriGotouLayer2"
+            id="hitoriGotou"
             class="h-full w-full centeredBg"
-            style="
-              display: none;
-              opacity: 0;
-              background-image: linear-gradient(
-                  to bottom,
-                  rgba(255, 255, 255, 0),
-                  #f2abbb,
-                  #f2abbb
-                ),
-                url(./assets/img/hitoriGotou2.jpg);
-              background-size: cover, cover;
-              background-position: 0 center, 0 -67px;
-              background-repeat: no-repeat, no-repeat;
-            "
+            style="background-color: #f2abbb"
           >
-            <div class="grid grid-cols-3 infos-container">
-              <div class="white-space"></div>
-              <div class="image">
-                <img
-                  src="./assets/img/hitoriGotouMain.png"
-                  alt=""
-                  class="characterImage"
-                />
-              </div>
-              <div class="infos">
-                <span class="editorName" id="mikaName">MIKARI</span>
-
-                <div class="quote">
-                  <span id="hitoriQuote"></span><br />
-                  <span><i>- Hitori Gotou (Bocchi)</i></span>
+            <div id="hitoriGotouLayer1" class="h-full w-full centeredBg"></div>
+            <div
+              id="hitoriGotouLayer2"
+              class="h-full w-full centeredBg"
+              style="
+                overflow: hidden;
+                display: none;
+                opacity: 0;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    #f2abbb,
+                    #f2abbb
+                  ),
+                  url(./assets/img/hitoriGotou2.jpg);
+                background-size: cover, cover;
+                background-position: 0 center, 0 -67px;
+                background-repeat: no-repeat, no-repeat;
+              "
+            >
+              <div class="grid grid-cols-3 infos-container">
+                <div class="white-space"></div>
+                <div class="image">
+                  <img
+                    src="./assets/img/hitoriGotouMain.png"
+                    alt=""
+                    class="characterImage"
+                  />
                 </div>
-                <div id="socialsMika" class="socialsDiv"></div>
-                <div class="viewButton">
-                  <button id="mikaButton"></button>
+                <div class="infos">
+                  <span class="editorName" id="mikaName">MIKARI</span>
+                  <div class="quote">
+                    <span id="hitoriQuote"></span><br />
+                    <span><i>- Hitori Gotou (Bocchi)</i></span>
+                  </div>
+                  <div id="socialsMika" class="socialsDiv"></div>
+                  <div class="viewButton">
+                    <button id="mikaButton"></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- NIJIKA -->
-        <div
-          id="nijikaIchiji"
-          class="h-full w-full centeredBg"
-          style="background-color: #efd580"
-        >
-          <div id="nijikaIchijiLayer1" class="h-full w-full centeredBg"></div>
+          <!-- NIJIKA -->
           <div
-            id="nijikaIchijiLayer2"
+            id="nijikaIchiji"
             class="h-full w-full centeredBg"
-            style="
-              display: none;
-              opacity: 0;
-              background-image: linear-gradient(
-                  to bottom,
-                  rgba(255, 255, 255, 0),
-                  #efd580,
-                  #efd580
-                ),
-                url(./assets/img/nijikaIchiji2.jpg);
-              background-size: cover, cover;
-              background-position: 0 center, 0 -97px;
-              background-repeat: no-repeat, no-repeat;
-            "
+            style="background-color: #efd580"
           >
-            <div class="grid grid-cols-3 infos-container">
-              <div class="white-space"></div>
-              <div class="image">
-                <img
-                  src="./assets/img/nijikaIchijiMain.png"
-                  alt=""
-                  class="characterImage"
-                />
-              </div>
-              <div class="infos">
-                <span class="editorName" id="bloomName">BLOOM1LK</span>
-
-                <div class="quote">
-                  <span id="nijikaQuote"></span><br />
-                  <span><i>- Nijika Ichiji</i></span>
+            <div id="nijikaIchijiLayer1" class="h-full w-full centeredBg"></div>
+            <div
+              id="nijikaIchijiLayer2"
+              class="h-full w-full centeredBg"
+              style="
+                overflow: hidden;
+                display: none;
+                opacity: 0;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    #efd580,
+                    #efd580
+                  ),
+                  url(./assets/img/nijikaIchiji2.jpg);
+                background-size: cover, cover;
+                background-position: 0 center, 0 -97px;
+                background-repeat: no-repeat, no-repeat;
+              "
+            >
+              <div class="grid grid-cols-3 infos-container">
+                <div class="white-space"></div>
+                <div class="image">
+                  <img
+                    src="./assets/img/nijikaIchijiMain.png"
+                    alt=""
+                    class="characterImage"
+                  />
                 </div>
-                <div id="socialsBloom" class="socialsDiv"></div>
-                <div class="viewButton">
-                  <button id="bloomButton"></button>
+                <div class="infos">
+                  <span class="editorName" id="bloomName">BLOOM1LK</span>
+                  <div class="quote">
+                    <span id="nijikaQuote"></span><br />
+                    <span><i>- Nijika Ichiji</i></span>
+                  </div>
+                  <div id="socialsBloom" class="socialsDiv"></div>
+                  <div class="viewButton">
+                    <button id="bloomButton"></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -252,6 +255,9 @@
         </div>
       </div>
     </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content" class="m-[2rem]"></div>
 
     <script type="module" src="./index.js"></script>
   </body>

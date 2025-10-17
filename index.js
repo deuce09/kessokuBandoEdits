@@ -1,10 +1,25 @@
-import { setImg, hoverCharacters, addShadows, addShadows2, addLinks, configureButton, landingPageButtonClick, outTransitionLandingPage } from "./scripts/functions.js";
-import { setTransitions, setTransitionsLayer1, setTransitionsLayer2 } from "./scripts/functions.js";
+import { hoverCharacters, configureButton, landingPageButtonClick, outTransitionLandingPage } from "./scripts/functions.js";
+import { setImg, setTransitions, setTransitionsLayer1, setTransitionsLayer2, setTransition_opacity } from "./scripts/functions.js";
+import { addShadows, addShadows2, addLinks, addBackgroundColor, addPadding, addBorderRadius } from "./scripts/functions.js";
+import { loadHTML } from "./scripts/functions.js";
+import { main_functions } from "./scripts/main-content.js";
+
+let toggleEditorValue = [
+    0, 0, 0, 0
+];
+
+export function getToggleEditorValue() {
+    return toggleEditorValue;
+}
+
 (function () {
 
+    const landingContent = document.getElementById("landing-content");
+    const mainContent = document.getElementById("main-content");
+
     const blackBarsTop = document.getElementById("blackBarsTop");
-    const masterDiv = document.getElementById("landingPage"); 
-    const blackBarsBottom = document.getElementById("blackBarsBottom"); 
+    const masterDiv = document.getElementById("landingPage");
+    const blackBarsBottom = document.getElementById("blackBarsBottom");
 
     const kitaQuote = document.getElementById("kitaQuote");
     const ryoQuote = document.getElementById("ryoQuote");
@@ -56,7 +71,59 @@ import { setTransitions, setTransitionsLayer1, setTransitionsLayer2 } from "./sc
     const mikaButton = document.getElementById("mikaButton");
     const bloomButton = document.getElementById("bloomButton");
 
-    const layer1Img = document.querySelectorAll(".layer1Img");
+    const qoute = document.querySelectorAll(".quote");
+
+    const characterDivId = [
+        kitaIkuyo,
+        ryoYamada,
+        hitoriGotou,
+        nijikaIchiji
+    ]
+
+    const layer1Id = [
+        kitaIkuyoLayer1,
+        ryoYamadaLayer1,
+        hitoriGotouLayer1,
+        nijikaIchijiLayer1
+    ];
+
+    const timing = [
+        100,
+        150,
+        200,
+        250
+    ]
+
+    layer1Id.forEach((btr) => {
+        btr.style.opacity = "0";
+    })
+
+    characterDivId.forEach((btr) => {
+        btr.style.transform = "translateY(-40px)"
+    })
+
+    for (let i = 0; i < layer1Id.length; i++) {
+
+        setTimeout(() => {
+            setTimeout(() => {
+                characterDivId[i].style.transform = "translateY(0px)";
+            }, timing[i]);
+            layer1Id[i].style.opacity = "1"
+        }, timing[i]);
+
+    }
+
+
+
+    // ============================================
+    // FUNCTIONS
+    // ============================================
+
+    qoute.forEach((quoteDiv) => {
+        addBackgroundColor(quoteDiv, "#0303031b");
+        addPadding(quoteDiv, "10px")
+        addBorderRadius(quoteDiv, "10px");
+    })
 
     setImg(kitaIkuyoLayer1, kitaImg);
     setImg(ryoYamadaLayer1, ryoImg);
@@ -98,11 +165,6 @@ import { setTransitions, setTransitionsLayer1, setTransitionsLayer2 } from "./sc
     addShadows2(socialsMika, "#FF2291");
     addShadows2(socialsBloom, "#FFB400");
 
-    addShadows2(kitaQuote, "#FF4637");
-    addShadows2(ryoQuote, "#02D1E0");
-    addShadows2(hitoriQuote, "#FF2291");
-    addShadows2(nijikaQuote, "#FFB400");
-
     addLinks(socialsRei, instaIcon, "https://www.instagram.com/reii.editz/");
     addLinks(socialsRei, ytIcon, "https://www.youtube.com/@reiplayss");
 
@@ -117,9 +179,37 @@ import { setTransitions, setTransitionsLayer1, setTransitionsLayer2 } from "./sc
 
     outTransitionLandingPage(masterDiv, blackBarsTop, blackBarsBottom);
 
-    landingPageButtonClick(reiButton, masterDiv, blackBarsTop, blackBarsBottom);
-    landingPageButtonClick(mashuButton, masterDiv, blackBarsTop, blackBarsBottom);
-    landingPageButtonClick(mikaButton, masterDiv, blackBarsTop, blackBarsBottom);
-    landingPageButtonClick(bloomButton, masterDiv, blackBarsTop, blackBarsBottom);
+
+    // ========================================
+    // FUNCTIONS MAIN CONTENT
+    // ========================================
+    const mainContentHTML = "./html/main-content.html"
+    mainContent.style.opacity = "0";
+
+    setTransition_opacity(mainContent);
+
+
+    landingPageButtonClick(reiButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 0, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+    landingPageButtonClick(mashuButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 1, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+    landingPageButtonClick(mikaButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 2, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+    landingPageButtonClick(bloomButton, masterDiv, blackBarsTop, blackBarsBottom, mainContent, toggleEditorValue, 3, 1, function () {
+        loadHTML(mainContent, mainContentHTML, function () {
+            main_functions();
+        });
+    });
+
+
 
 })();

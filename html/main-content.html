@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Gloria+Hallelujah&family=Rock+Salt&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/main-content.css" />
+  <title>Kessoku Bando Edits</title>
+</head>
+
+<body>
+  <div class="grid grid-cols-12 xl:grid-flow-col sm:grid-flow-row">
+    <div id="characterSidebar" class="p-[10px] flex md:flex-row xl:flex-col items-center gap-5 w-max h-max">
+      <div id="go_back">
+        <h1><span id="backIcon">@</span></h1>
+      </div>
+      <!-- kessoku icons -->
+
+      <div id="hitoriIcon"></div>
+
+      <div id="ryoIcon"></div>
+
+      <div id="kitaIcon"></div>
+
+      <div id="nijikaIcon"></div>
+    </div>
+
+    <!-- EDITS / COLLABORATIONS -->
+    <div id="content" class="
+          col-span-11
+          p-[20px] 
+          xl:ml-[2rem] 
+          xl:mt-[0rem] 
+          sm:mt-[7rem]
+          sm:ml-[0rem]
+          " style="border-radius: 10px">
+      <div class="flex flex-col gap-10">
+        <div id="collab_mep" style="display: none; opacity: 0">
+          <h1 id="collab_mep_title"><span>Kessoku Meps</span></h1>
+          <div id="mep_edits"
+            class="mt-[1rem] grid xl:grid-flow-col lg:grid-cols-4 md:grid-cols-2 sm:grid-flow-row gap-4">
+            <!-- MEP HERE -->
+          </div>
+        </div>
+
+        <div id="contentEdits">
+          <h1 id="contentTitle">
+            Edits of <span id="videoEditor_name"></span>
+          </h1>
+          <div id="edit_div_master" class="mt-[1rem] 
+            flex
+            flex-row 
+            gap-4">
+            <div style="display: none" id="reiEdits" class="flex 
+            xl:flex-row 
+            sm:flex-col
+            gap-3
+            "></div>
+            <div style="display: none" id="mashuEdits" class="flex 
+            xl:flex-row 
+            sm:flex-col
+            gap-3
+            "></div>
+            <div style="display: none" id="mikaEdits" class="flex 
+            xl:flex-row 
+            sm:flex-col
+            gap-3
+            "></div>
+            <div style="display: none" id="blooEdits" class="grid grid-flow-row-dense grid-cols-3 grid-rows-3
+            gap-3
+            "></div>
+            <div style="display: none" id="no_one_selected" class="flex flex-col gap-3">
+              <span>Please select at least 1 Editor</span>
+              <img src="../assets/gif/no_one_selected.gif" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./scripts/scripts.js"></script>
+</body>
+
+</html>
