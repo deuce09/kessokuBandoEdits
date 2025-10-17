@@ -59,11 +59,7 @@ export async function edit_collection(editorName, styleSelected = null) {
 
     let editor_styles = "";
 
-    if (styleSelected !== "all") {
-        editor_styles = editor.styles[styleSelected];
-    } else {
-        editor_styles = editor.styles;
-    }
+    editor_styles = editor.styles[styleSelected];
 
     for (let key in editor_styles) {
         let styles = "";
@@ -132,7 +128,7 @@ export async function get_infos_edits(editorName, styleSelected = null) {
     let editor_edits = [];
 
     for (let i = 0; i < getData_editor_edits.length; i++) {
-        editor_edits.push({ [literal_names[i]]: getData_editor_edits[i]});
+        editor_edits.push({ [literal_names[i]]: getData_editor_edits[i] });
     };
 
     // editor_edits.forEach(obj => {
