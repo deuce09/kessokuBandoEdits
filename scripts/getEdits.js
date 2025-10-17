@@ -59,15 +59,13 @@ export async function edit_collection(editorName, styleSelected = null) {
 
     let editor_styles = "";
 
-    editor_styles = editor.styles[styleSelected];
+    editor_styles = editor.styles;
 
     for (let key in editor_styles) {
         let styles = "";
-        if (styleSelected !== "all") {
-            styles = editor_styles;
-        } else {
+
             styles = editor_styles[key];
-        }
+        
 
         for (let i = 0; i < things_to_get.length; i++) {
             for (const items of styles) {
