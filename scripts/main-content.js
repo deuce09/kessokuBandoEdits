@@ -91,15 +91,15 @@ export async function main_functions() {
     const hitoriIcon = document.getElementById("hitoriIcon");
     const nijikaIcon = document.getElementById("nijikaIcon");
 
-    const kitaIcon_img = "../assets/img/kitaIcon.png";
-    const ryoIcon_img = "../assets/img/ryoIcon.png";
-    const hitoriIcon_img = "../assets/img/hitoriIcon.png";
-    const nijikaIcon_img = "../assets/img/nijikaIcon.png";
+    const kitaIcon_img = "./assets/img/kitaIcon.png";
+    const ryoIcon_img = "./assets/img/ryoIcon.png";
+    const hitoriIcon_img = "./assets/img/hitoriIcon.png";
+    const nijikaIcon_img = "./assets/img/nijikaIcon.png";
 
-    const kitaIcon_img_1 = "../assets/img/kitaIcon1.png";
-    const ryoIcon_img_1 = "../assets/img/ryoIcon1.png";
-    const hitoriIcon_img_1 = "../assets/img/hitoriIcon1.png";
-    const nijikaIcon_img_1 = "../assets/img/nijikaIcon1.png";
+    const kitaIcon_img_1 = "./assets/img/kitaIcon1.png";
+    const ryoIcon_img_1 = "./assets/img/ryoIcon1.png";
+    const hitoriIcon_img_1 = "./assets/img/hitoriIcon1.png";
+    const nijikaIcon_img_1 = "./assets/img/nijikaIcon1.png";
 
     const reiEdits = document.getElementById("reiEdits");
     const mashuEdits = document.getElementById("mashuEdits");
