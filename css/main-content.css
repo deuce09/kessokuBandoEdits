@@ -1,4 +1,17 @@
 body{
     background-color: #060608;
     color: white;
+    position: relative;
+}
+
+.bigText{
+    font-size: 2rem;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.bold{
+    font-style: bold;
 }

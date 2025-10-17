@@ -11,6 +11,14 @@ export async function loadHTML(element, html, callback) {
 
 }
 
+export function toggleEdit_show(editor) {
+    editor.style.display = "flex";
+}
+
+export function toggleEdit_hide(editor) {
+    editor.style.display = "none";
+}
+
 export function setImg(character, img) {
     // const createImg = document.createElement("img");
 
@@ -277,12 +285,16 @@ export function hoverCharacters(character, img, characterLayer1, characterLayer2
 export function landingPageButtonClick(button, masterDiv, bbUp, bbDown, mainContentShow, array, index, value, callback) {
     button.addEventListener("click", () => {
         // masterDiv.style.transform = "translateX(2500px) scale(1.5)";
-        masterDiv.style.opacity = "0";
-        bbUp.style.transform = "translateY(-200px)";
-        bbDown.style.transform = "translateY(200px)";
+        // bbUp.style.transform = "translateY(-200px)";
+        // bbDown.style.transform = "translateY(200px)";
 
-        bbUp.style.height = "80vh"
-        bbDown.style.height = "80vh"
+        bbUp.style.height = "50vh"
+        bbDown.style.height = "50vh"
+
+        setTimeout(() => {
+
+            masterDiv.style.opacity = "0";
+        }, 150);
 
         array[index] = value;
 
@@ -303,9 +315,254 @@ export function landingPageButtonClick(button, masterDiv, bbUp, bbDown, mainCont
             }, 600);
         }, 700);
 
-        if(callback){
+        if (callback) {
             callback();
         }
 
     })
+}
+
+
+export function displayEdit(
+    container, modalId, divId, thumbnail,
+    edit_link, edit_title, edit_description,
+    edit_audio, anime_used, character_used,
+    edit_references, software_used, edit_date,
+    editor_name
+) {
+    // used chat gpt
+    // --- create description block ---
+
+    function editorDivValues(parent) {
+        const text = document.createElement("span");
+        const h1 = document.createElement("h1");
+        const text2 = document.createElement("span");
+
+        const placeholder = "many"
+        if (editor_name === "-") {
+            editor_name = placeholder
+        }
+        text2.textContent = `@${editor_name}`;
+        h1.appendChild(text2);
+        if (editor_name === "bloom1lk") {
+            h1.style.color = "#EA2F14";
+        }
+        if (editor_name === "Rei") {
+            h1.style.color = "#FCF259";
+        }
+        if (editor_name === "Mashu") {
+            h1.style.color = "#D2C1B6";
+        }
+        if (editor_name === "Mikari") {
+            h1.style.color = "#FAE3C6";
+        }
+        if (editor_name === placeholder) {
+            h1.style.color = "#957C62"
+        }
+        text.textContent = "Edited by: "
+        if (editor_name === placeholder) {
+            text.style.color = "#957C62"
+        }
+        parent.append(
+            text, h1
+        )
+    }
+
+    function descriptionValues(parent) {
+
+        const title = document.createElement("span");
+
+        const desc = document.createElement("span");
+        const audio = document.createElement("span");
+        const anime = document.createElement("span");
+        const character = document.createElement("span");
+        const reference = document.createElement("span");
+        const software = document.createElement("span");
+        const date = document.createElement("span");
+        const hr = document.createElement("hr")
+        const hr2 = document.createElement("hr")
+
+        const p1 = document.createElement("span");
+        const p2 = document.createElement("span");
+        const p3 = document.createElement("span");
+        const p4 = document.createElement("span");
+        const p5 = document.createElement("span");
+        const p6 = document.createElement("span");
+        const p7 = document.createElement("span");
+        const p8 = document.createElement("span");
+        const p9 = document.createElement("span");
+        const p10 = document.createElement("span");
+        const p11 = document.createElement("span");
+        const p12 = document.createElement("span");
+        const p13 = document.createElement("span");
+        const p14 = document.createElement("span");
+        const p15 = document.createElement("span");
+
+        hr.classList.add("mt-[1rem]")
+        hr.classList.add("mb-[1rem]")
+        hr2.classList.add("mt-[1rem]")
+        hr2.classList.add("mb-[1rem]")
+
+        title.textContent = `${edit_title}`;
+        title.classList.add("bigText");
+        title.classList.add("bold");
+
+        desc.textContent = `${edit_description}`;
+        desc.classList.add("mt-[1rem]")
+        desc.classList.add("mb-[1rem]")
+
+        audio.textContent = `Audio Used: ${edit_audio}`;
+        anime.textContent = `Anime: ${anime_used}`;
+        character.textContent = `Character/s: ${character_used}`;
+        reference.textContent = `Inspired by: ${edit_references}`;
+        software.textContent = `Software Used: ${software_used}`;
+
+        date.textContent = `Date Created: ${edit_date}`;
+        date.classList.add("italic");
+        date.classList.add("text-[1rem]");
+        date.classList.add("mt-[1rem]");
+
+        parent.append(
+            title,
+            hr,
+            desc,
+            audio,
+            anime,
+            character,
+            reference,
+            software,
+            hr2,
+            date);
+    }
+
+    // --- generate unique IDs ---
+    // const uniqueSuffix = Date.now() + Math.floor(Math.random() * 1000);
+    const uniqueModalId = `${modalId}`;
+    const uniqueDivId = `${divId}`;
+
+    let primaryBg = "bg-[#B77466]";
+    let secondaryBg = "bg-[#FFE1AF]";
+    let tertiaryBg = "bg-[#E2B59A]";
+    let textColor = "#957C62";
+
+    if (editor_name === "bloom1lk") {
+        primaryBg = "bg-[#FCEF91]";
+        secondaryBg = "bg-[#FB9E3A]";
+        tertiaryBg = "bg-[#E6521F]";
+        textColor = "#EA2F14";
+    }
+
+    if (editor_name === "Rei") {
+        primaryBg = "bg-[#4A102A]";
+        secondaryBg = "bg-[#85193C]";
+        tertiaryBg = "bg-[#C5172E]";
+        textColor = "#FCF259";
+    }
+
+    if (editor_name === "Mashu") {
+        primaryBg = "bg-[#1B3C53]";
+        secondaryBg = "bg-[#234C6A]";
+        tertiaryBg = "bg-[#456882]";
+        textColor = "#D2C1B6"
+    }
+
+    if (editor_name === "Mikari") {
+        primaryBg = "bg-[#B3BFFF]";
+        secondaryBg = "bg-[#F564A9]";
+        tertiaryBg = "bg-[#FAA4BD]";
+        textColor = "#FFF58A";
+    }
+
+    // --- create elements ---
+    const createModal = document.createElement("div");
+    const createInnerModal = document.createElement("div");
+    const createIframe = document.createElement("iframe");
+    const createDiv = document.createElement("div");
+    const createImg = document.createElement("img");
+    const createDescDiv = document.createElement("div");
+    const createVidDiv = document.createElement("div");
+    const createEditorDiv = document.createElement("div");
+
+    // --- structure ---
+    createModal.classList.add("modal");
+    createModal.id = uniqueModalId;
+
+    createEditorDiv.classList.add("sm:min-w-full");
+    createEditorDiv.classList.add("sm:max-w-full");
+    createEditorDiv.classList.add(tertiaryBg);
+
+    createVidDiv.classList.add("w-max");
+
+    createInnerModal.classList.add("inner-modal");
+    createInnerModal.classList.add(primaryBg);
+    createInnerModal.classList.add("flex", "xl:flex-row");
+    createInnerModal.classList.add("gap-5");
+
+    createInnerModal.classList.add("sm:flex-col");
+    createDescDiv.classList.add("sm:mt-[1rem]");
+
+    createDescDiv.classList.add("xl:mt-[0rem]");
+    createDescDiv.classList.add("flex");
+    createDescDiv.classList.add("flex-col");
+    createDescDiv.classList.add(secondaryBg);
+    createDescDiv.classList.add("p-[20px]");
+    createDescDiv.style.color = textColor;
+
+    createDescDiv.classList.add("xl:min-w-[600px]");
+    createDescDiv.classList.add("xl:max-w-[600px]");
+
+    createDescDiv.classList.add("sm:min-w-full");
+    createDescDiv.classList.add("sm:max-w-full");
+
+    createDescDiv.style.borderRadius = "10px";
+    // createDescDiv.classList.add("text-black");
+
+    createIframe.src = edit_link;
+    createIframe.width = 1000;
+    createIframe.height = 600;
+
+    createIframe.classList.add("sm:min-w-full");
+    createIframe.classList.add("sm:max-w-full");
+
+    createVidDiv.classList.add("flex");
+    createVidDiv.classList.add("flex-col");
+
+    createEditorDiv.classList.add(secondaryBg);
+    createEditorDiv.classList.add("mt-[2rem]");
+    createEditorDiv.classList.add("p-[20px]");
+    createEditorDiv.classList.add("w-[full]");
+    createEditorDiv.classList.add("h-[full]");
+    createEditorDiv.style.borderRadius = "10px";
+    editorDivValues(createEditorDiv);
+
+    // fill in content
+    createVidDiv.append(createIframe, createEditorDiv);
+    descriptionValues(createDescDiv);
+    createInnerModal.append(createVidDiv, createDescDiv);
+    createModal.appendChild(createInnerModal);
+
+    // clickable thumbnail
+    createDiv.style.cursor = "pointer";
+    createDiv.id = uniqueDivId;
+    createDiv.style.width = "max-content";
+    createImg.src = thumbnail;
+    createImg.style.width = "300px";
+
+    createDiv.appendChild(createImg);
+    container.append(createDiv, createModal);
+
+    // --- modal behavior ---
+    createDiv.addEventListener("click", () => {
+        console.log(`clicked ${uniqueDivId}`);
+        createModal.classList.add("open");
+    });
+
+    createModal.addEventListener("click", (e) => {
+        if (e.target === createModal) createModal.classList.remove("open");
+    });
+
+    // return ids if needed later
+    return { uniqueModalId, uniqueDivId };
+
+
 }
