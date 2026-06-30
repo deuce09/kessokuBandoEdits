@@ -14,8 +14,8 @@ export async function main_functions() {
 
     const bloom1lk_edits = await get_infos_edits(kessoku_gang[3], "all");
     const rei_edits = await get_infos_edits(kessoku_gang[0], "all");
-    const mashu_edits = await get_infos_edits(kessoku_gang[1], "all");
-    const mikari_edits = await get_infos_edits(kessoku_gang[2], "all");
+    const mashu_edits = await get_infos_edits(kessoku_gang[2], "all");
+    const mikari_edits = await get_infos_edits(kessoku_gang[1], "all");
     const everyone = await get_infos_edits(kessoku_gang[4], "all");
 
     function showEdits(container, thumbnail,
